@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>sign up</title>
 </head>
-<body>
-    
+<body bgcolor="black" style="color :yellow"><br><br><br><br>
+
+    <center>
+    <h2> Create Account</h2>
+
+    {% for message in messages %}
+    <p style ="color:red;">{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type ="text" name = "username" placeholder="Username"><br><br>
+        <input type ="password" name="password" placeholder="Password"><br> <br>
+        <input type ="password" name ="confirm_password" placeholder ="Confirm password"> <br><br>
+        <button type ="submit">Sign Up</button>
+
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+</center>
+    </form>
+
+
+
 </body>
 </html>
